@@ -42,14 +42,13 @@ a {
   height: 100%;
 
   opacity: 1;
-
   transition: opacity 300ms cubic-bezier(0.4, 0, 0.2, 1);
 
   background-color: rgba(0, 0, 0, 0.2);
 }
 
-.backdrop.is-hidden.modal {
-  transform: translate(-50%, -50%) scale(0.9);
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0.7) rotateY(450deg);
 }
 
 .modal {
@@ -74,6 +73,7 @@ a {
   right: 8px;
 
   border: 0;
+  border-radius: 50%;
 
   background-image: url(./img/svg/close.svg);
   background-size: contain;
@@ -162,6 +162,24 @@ span {
   margin-left: 93px;
 }
 
+.nav-list .link {
+  position: relative;
+  display: block;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  color: #000000;
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.02em;
+}
+
+.nav-list .link:hover,
+.nav-list .link:focus {
+  color: var(--accent-color);
+}
+
 .nav-list .link.current {
 
   color: var(--accent-color);
@@ -180,23 +198,13 @@ span {
   background-color: var(--accent-color);
 
   border-radius: 4px;
+
+  transform: scale(0);
+  transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.nav-list .link {
-  display: block;
-  padding-top: 32px;
-  padding-bottom: 32px;
-  color: #000000;
-
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 1.14;
-  letter-spacing: 0.02em;
-}
-
-.nav-list .link:hover,
-.nav-list .link:focus {
-  color: var(--accent-color);
+.nav-list .link:hover.current::after {
+  transform: scale(1);
 }
 
 .contacts-nav {
@@ -650,13 +658,14 @@ span {
 }
 
 /* Оверлей на карточках */
-
+.examples-img-thumb,
 .img-thumb {
   position: relative;
 
   overflow: hidden;
 }
 
+.examples-overlay,
 .overlay {
   position: absolute;
   top: 0;
@@ -666,6 +675,7 @@ span {
 
   background-color: #2196F3E5;
   color: var(--background-color);
+
   padding: 63px 24px;
   margin: 0px;
 
@@ -676,10 +686,26 @@ span {
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.link-thumb:hover .overlay {
+.overlay {
+  top: 224px;
+  height: 70px;
+
+  background-color: #2F303ACC;
+
+  padding: 27px 94px;
+
+  font-size: 14px;
+  line-height: 1;
+
+  text-align: center;
+}
+
+.thumb:hover .overlay,
+.link-thumb:hover .examples-overlay {
   transform: translateY(0);
 }
 
-.link-thumb:hover .link-text .link-thumb:focus .link-text {
-  box-shadow: 0px;
+.link-thumb:hover .link-text,
+.link-thumb:focus .link-text {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
 }

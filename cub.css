@@ -1,0 +1,55 @@
+.back {
+    margin: 50px;
+    width: 400px;
+    height: 400px;
+    background-color: #023535;
+}
+
+.cub {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border-radius: 4px;
+    background-color: #008F8C;
+    top: 50%;
+    left: 0;
+
+    animation: cub 5000ms linear infinite;
+}
+
+@keyframes cub {
+    0% {
+        top: 50%;
+        left: 0;
+        background-color: #008F8C;
+    }
+
+    20% {
+        top: 0;
+        left: 0;
+        background-color: #015958;
+    }
+
+    40% {
+        top: 0;
+        left: 75%;
+        background-color: teal;
+    }
+
+    60% {
+        top: 75%;
+        left: 75%;
+        background-color: royalblue;
+    }
+
+    80% {
+        top: 75%;
+        left: 0;
+        background-color: aquamarine;
+    }
+
+    100% {
+        top: 50%;
+        left: 0;
+    }
+}
